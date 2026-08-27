@@ -1,0 +1,9 @@
+# virtualenv — recreate with: python3 -m venv jarvis-env && pip install -r requirements.txt
+jarvis-env/
+
+# large model weights (7.8 MB, redownloadable from MediaPipe)
+hand_landmarker.task
+
+__pycache__/
+*.pyc
+.DS_Store
