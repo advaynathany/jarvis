@@ -51,7 +51,7 @@ if not os.path.exists(MODEL_PATH):
 # ============================================================
 # Camera — change index if your laptop camera is at 1 instead of 0
 # ============================================================
-CAMERA_INDEX = 1
+CAMERA_INDEX = 0
 cap = cv2.VideoCapture(CAMERA_INDEX)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
