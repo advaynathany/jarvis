@@ -18,16 +18,18 @@ and window moves.
 ## How it works
 
 - **Pose, then intent.** Classifying a pose and deciding what it means are separate
-  stages. A `PoseStabilizer` requires a pose to hold for a few frames before it
-  counts, so a hand passing through a pinch on its way to a fist doesn't click.
+  stages. A `PoseStabilizer` makes palm, peace and fist hold for a few frames
+  before they count, so a hand passing between them doesn't flicker modes.
+  Pinches and grabs skip the wait, because click latency is what you feel most.
 - **Movement stays on while clicking.** Cursor motion is gated on "palm-ish"
   poses, which include a pinch in progress, so the cursor doesn't freeze the
   moment you start a drag.
 - **Active region, not the whole frame.** Only a box covering about 28% of the
   camera width maps to the full screen, so small hand movements cover the display.
   Press `r` to re-centre it on your hand.
-- **Smoothing and a deadzone** remove tremor at rest without adding lag to
-  deliberate motion, and the smoothing tightens further while a context menu is open.
+- **Smoothing with acceleration** removes tremor without slowing deliberate
+  motion. While a context menu is open, smoothing increases and a small deadzone
+  turns on, so you can land on a menu item.
 
 ## Run
 
