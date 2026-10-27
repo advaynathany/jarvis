@@ -1,4 +1,8 @@
 opencv-python>=4.9
 mediapipe>=0.10.14
-pyautogui>=0.9.54
 numpy>=1.26
+pyobjc-framework-Quartz>=10
+pyobjc-framework-Cocoa>=10
+pyobjc-framework-AVFoundation>=10
+sounddevice>=0.4
+mlx-whisper>=0.4

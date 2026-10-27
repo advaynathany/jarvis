@@ -1,0 +1,97 @@
+# Jarvis configuration. Reloaded when the file changes, no restart needed.
+#
+# An action is one of:
+#   "cmd+shift+t"      a key combo (cmd ctrl alt/option shift fn + a key)
+#   "open:Safari"      open an app
+#   "type:hello"       type text
+#   "jarvis:sleep"     jarvis:sleep | jarvis:mouse | jarvis:recenter
+#   ""                 do nothing
+#
+# Swipe directions follow the trackpad: swipe left pushes content left,
+# so it goes to the desktop / slide / page on the right.
+
+[tracking]
+camera = "builtin"          # the Mac's own camera, never the iPhone (Continuity Camera);
+                            # or part of a camera's name, or a number
+primary_hand = "Right"      # the cursor hand when two hands are visible
+wake_hold_ms = 500          # hold an open palm still this long to wake
+sleep_after_s = 5.0         # go to sleep after this long without input
+
+[actions]
+swipe_left  = "ctrl+right"  # next desktop
+swipe_right = "ctrl+left"   # previous desktop
+swipe_up    = "ctrl+up"     # Mission Control
+swipe_down  = "ctrl+down"   # App Exposé
+zoom_in     = "cmd+="
+zoom_out    = "cmd+-"
+rotate_cw   = ""            # off by default: cmd+r reloads a browser
+rotate_ccw  = ""
+fist        = "escape"
+# Gestures you train with --record get a line here, e.g.:
+# thumbs_up = "cmd+tab"
+
+# Per-app overrides, matched against the frontmost app's name.
+[apps.Safari]
+swipe_left  = "cmd+]"       # forward
+swipe_right = "cmd+["       # back
+
+[apps."Google Chrome"]
+swipe_left  = "cmd+]"
+swipe_right = "cmd+["
+
+[apps.Arc]
+swipe_left  = "cmd+]"
+swipe_right = "cmd+["
+
+[apps.Keynote]
+swipe_left  = "right"       # next slide
+swipe_right = "left"
+zoom_in     = ""
+zoom_out    = ""
+
+[apps.Preview]
+rotate_cw   = "cmd+r"
+rotate_ccw  = "cmd+l"
+
+[apps.Photos]
+rotate_cw   = "cmd+r"
+rotate_ccw  = "alt+cmd+r"
+
+[voice]
+enabled = true
+model = "mlx-community/whisper-base.en-mlx"   # whisper-small.en-mlx is more accurate, slower
+
+# Spoken phrase -> action. The whole utterance must match (case and
+# punctuation ignored). "open <app>" works for any app. Anything that
+# doesn't match is typed into the focused field; say "type ..." to force it.
+[voice.commands]
+"close this"     = "cmd+w"
+"close tab"      = "cmd+w"
+"new tab"        = "cmd+t"
+"next tab"       = "ctrl+tab"
+"previous tab"   = "ctrl+shift+tab"
+"reopen tab"     = "cmd+shift+t"
+"new window"     = "cmd+n"
+"go back"        = "cmd+["
+"go forward"     = "cmd+]"
+"reload"         = "cmd+r"
+"copy"           = "cmd+c"
+"paste"          = "cmd+v"
+"cut"            = "cmd+x"
+"undo"           = "cmd+z"
+"redo"           = "cmd+shift+z"
+"select all"     = "cmd+a"
+"save"           = "cmd+s"
+"find"           = "cmd+f"
+"enter"          = "return"
+"press enter"    = "return"
+"escape"         = "escape"
+"switch app"     = "cmd+tab"
+"mission control" = "ctrl+up"
+"next desktop"   = "ctrl+right"
+"previous desktop" = "ctrl+left"
+"spotlight"      = "cmd+space"
+"zoom in"        = "cmd+="
+"zoom out"       = "cmd+-"
+"go to sleep"    = "jarvis:sleep"
+"stop listening" = "jarvis:sleep"

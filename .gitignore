@@ -7,3 +7,6 @@ hand_landmarker.task
 __pycache__/
 *.pyc
 .DS_Store
+
+# your calibration and recorded gesture samples (personal, regenerated with --calibrate / --record)
+profile/
